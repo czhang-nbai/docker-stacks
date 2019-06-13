@@ -3,7 +3,7 @@
 
 # Ubuntu 18.04 (bionic) from 2018-05-26
 # https://github.com/docker-library/official-images/commit/aac6a45b9eb2bffb8102353c350d341a410fb169
-ARG BASE_CONTAINER=ubuntu:bionic-20180526@sha256:c8c275751219dadad8fa56b3ac41ca6cb22219ff117ca98fe82b42f24e1ba64e
+ARG BASE_CONTAINER=nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04@sha256:2a3d4e52dde146cc5937c323e43c9cd605106e66b24a3f8bcee3f859dce42cf2
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
