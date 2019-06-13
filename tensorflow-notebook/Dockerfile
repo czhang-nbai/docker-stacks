@@ -10,5 +10,6 @@ RUN conda install --quiet --yes \
     'tensorflow-gpu=1.13*' \
     'keras=2.2*' && \
     conda clean --all -f -y && \
+    jupyter labextension install @jupyterlab/google-drive && \
     fix-permissions $CONDA_DIR && \
     fix-permissions /home/$NB_USER
