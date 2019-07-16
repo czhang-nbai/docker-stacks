@@ -1,0 +1,52 @@
+{
+  "name": "jupyterlab-enhanced",
+  "version": "0.1.0",
+  "description": "JupyterLab extension for creating and running shell or python script",
+  "keywords": [
+    "jupyter",
+    "jupyterlab",
+    "jupyterlab-extension"
+  ],
+  "homepage": "https://github.com/enlznep/jupyterlab-shell-file",
+  "bugs": {
+    "url": "https://github.com/enlznep/jupyterlab-shell-file/issues"
+  },
+  "license": "BSD-3-Clause",
+  "author": "Ray Marc Marcellones",
+  "files": [
+    "lib/**/*.{d.ts,eot,gif,html,jpg,js,js.map,json,png,svg,woff2,ttf}",
+    "style/**/*.{css,eot,gif,html,jpg,json,png,svg,woff2,ttf}"
+  ],
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/enlznep/jupyterlab-shell-file.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "clean": "rimraf lib",
+    "prepare": "npm run clean && npm run build",
+    "watch": "tsc -w"
+  },
+  "dependencies": {
+    "@jupyterlab/application": "^0.19.1",
+    "@jupyterlab/apputils": "^0.19.1",
+    "@jupyterlab/codeeditor": "^0.19.1",
+    "@jupyterlab/docregistry": "^0.19.1",
+    "@jupyterlab/filebrowser": "^0.19.3",
+    "@jupyterlab/fileeditor": "^0.19.1",
+    "@jupyterlab/launcher": "^0.19.1",
+    "@jupyterlab/mainmenu": "^0.8.1",
+    "@jupyterlab/notebook": "^0.19.2",
+    "@phosphor/algorithm": "^1.1.2",
+    "@phosphor/disposable": "^1.1.2"
+  },
+  "devDependencies": {
+    "rimraf": "^2.6.1",
+    "typescript": "~3.1.1"
+  },
+  "jupyterlab": {
+    "extension": true
+  }
+}
