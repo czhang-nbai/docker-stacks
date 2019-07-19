@@ -254,7 +254,7 @@ def check_data_path(dirname, workspace_dir=''):
                 os.makedirs(dir_path)
             except FileExistsError:
                 pass
-            if dir_path.startswith(os.path.abspath(workspace_dir) + os.sep):
+            if not dir_path.startswith(os.path.abspath(workspace_dir) + os.sep):
                 e_message = "Data directory is NOT inside the project root directory. \n"
                 global_err_msg += e_message
                 logger.error(e_message)
