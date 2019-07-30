@@ -12,6 +12,9 @@ c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.port = 8888
 c.NotebookApp.open_browser = False
 c.NotebookApp.allow_root = True
+c.NotebookApp.default_url = '/lab'
+c.NotebookApp.shutdown_no_activity_timeout = 600
+c.MappingKernelManager.cull_idle_timeout = 600
 # https://github.com/jupyter/notebook/issues/3130
 c.FileContentsManager.delete_to_trash = False
 
