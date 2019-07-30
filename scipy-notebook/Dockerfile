@@ -20,7 +20,7 @@ RUN conda install --quiet --yes \
     'ipywidgets=7.5*' \
     'pandas=0.24*' \
     'numexpr=2.6*' \
-    'matplotlib=3.0*' \
+    'matplotlib-base=3.1.*' \
     'scipy=1.2*' \
     'seaborn=0.9*' \
     'scikit-learn=0.20*' \
@@ -47,8 +47,9 @@ RUN conda install --quiet --yes \
     # Also activate ipywidgets extension for JupyterLab
     # Check this URL for most recent compatibilities
     # https://github.com/jupyter-widgets/ipywidgets/tree/master/packages/jupyterlab-manager
-    jupyter labextension install @jupyter-widgets/jupyterlab-manager@^1.0.0 && \
-    jupyter labextension install jupyterlab_bokeh@1.0.0 && \
+    jupyter labextension install @jupyter-widgets/jupyterlab-manager@^1.0.1 --no-build && \
+    jupyter labextension install jupyterlab_bokeh@1.0.0 --no-build && \
+    jupyter lab build --dev-build=False && \
     npm cache clean --force && \
     rm -rf $CONDA_DIR/share/jupyter/lab/staging && \
     rm -rf /home/$NB_USER/.cache/yarn && \
