@@ -11,7 +11,18 @@ c = get_config()
 c.NotebookApp.ip = '0.0.0.0'
 c.NotebookApp.port = 8888
 c.NotebookApp.open_browser = False
+c.NotebookApp.default_url = '/lab'
 
+c.NotebookApp.notebook_dir = '/home/jovyan/sync'
+# shutdown the server after no activity for 5 minutes
+c.NotebookApp.shutdown_no_activity_timeout = 5 * 60
+# shutdown kernels after no activity for 10 minutes
+c.MappingKernelManager.cull_idle_timeout = 10 * 60
+# check for idle kernels every 2 minutes
+c.MappingKernelManager.cull_interval = 2 * 60
+# Set to False to disable terminals.
+# terminals won't be killed after cull_idle_timeout, which prevents service shutting down
+c.NotebookApp.terminals_enabled = True
 # https://github.com/jupyter/notebook/issues/3130
 c.FileContentsManager.delete_to_trash = False
 
@@ -53,3 +64,9 @@ distinguished_name = req_distinguished_name
 # the environment
 if 'NB_UMASK' in os.environ:
     os.umask(int(os.environ['NB_UMASK'], 8))
+
+c.NotebookApp.tornado_settings = {
+    'headers': {
+        'Content-Security-Policy': " frame-ancestors * 'self' "
+    }
+}
