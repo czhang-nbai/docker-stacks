@@ -15,6 +15,7 @@ USER root
 
 RUN conda install --quiet --yes \
     'conda-forge::pipreqs' \
+    'conda-forge::minio' \
     'nbconvert' && \
     conda clean --all -f -y && \
     jupyter labextension install @jupyterlab/google-drive
