@@ -3,7 +3,7 @@
 
 # Ubuntu 18.04 (bionic) from 2019-06-12
 # https://github.com/tianon/docker-brew-ubuntu-core/commit/3c462555392cb188830b7c91e29311b5fad90cfe
-ARG BASE_CONTAINER=nvidia/cuda:10.0-cudnn7-runtime-ubuntu18.04@sha256:2a3d4e52dde146cc5937c323e43c9cd605106e66b24a3f8bcee3f859dce42cf2
+ARG BASE_CONTAINER=nvidia/cuda:10.1-cudnn7-runtime-ubuntu18.04@sha256:14175ed97d841be1a11c42ff9dcc5a8e50edacc00ce15dce4141a683986e7425
 FROM $BASE_CONTAINER
 
 LABEL maintainer="Jupyter Project <jupyter@googlegroups.com>"
@@ -24,6 +24,7 @@ RUN apt-get update && apt-get -yq dist-upgrade \
     sudo \
     locales \
     fonts-liberation \
+    run-one \
  && rm -rf /var/lib/apt/lists/*
 
 RUN echo "en_US.UTF-8 UTF-8" > /etc/locale.gen && \
@@ -101,9 +102,9 @@ RUN conda install --quiet --yes 'tini=0.18.0' && \
 # Do all this in a single RUN command to avoid duplicating all of the
 # files across image layers when the permissions change
 RUN conda install --quiet --yes \
-    'notebook=5.7.5' \
-    'jupyterhub=0.9.4' \
-    'jupyterlab=0.35.4' && \
+    'notebook=6.0.0' \
+    'jupyterhub=1.0.0' \
+    'jupyterlab=1.1.3' && \
     conda clean --all -f -y && \
     npm cache clean --force && \
     jupyter notebook --generate-config && \

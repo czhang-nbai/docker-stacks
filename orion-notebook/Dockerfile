@@ -17,6 +17,7 @@ RUN conda install --quiet --yes \
     'conda-forge::minio' \
     'nbconvert' && \
     conda clean --all -f -y && \
+    pip install tensorflow-datasets && \
     jupyter labextension install @jupyterlab/google-drive
 
 # 2. create folder /home/jovyan/sync
