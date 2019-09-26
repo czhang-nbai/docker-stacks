@@ -15,11 +15,11 @@ c.NotebookApp.default_url = '/lab'
 
 c.NotebookApp.notebook_dir = '/home/jovyan/sync'
 # shutdown the server after no activity for 5 minutes
-c.NotebookApp.shutdown_no_activity_timeout = 5 * 60
+# c.NotebookApp.shutdown_no_activity_timeout = 5 * 60
 # shutdown kernels after no activity for 10 minutes
-c.MappingKernelManager.cull_idle_timeout = 10 * 60
+# c.MappingKernelManager.cull_idle_timeout = 10 * 60
 # check for idle kernels every 2 minutes
-c.MappingKernelManager.cull_interval = 2 * 60
+# c.MappingKernelManager.cull_interval = 2 * 60
 # Set to False to disable terminals.
 # terminals won't be killed after cull_idle_timeout, which prevents service shutting down
 c.NotebookApp.terminals_enabled = True
